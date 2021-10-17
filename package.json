@@ -1,5 +1,5 @@
 {
-  "name": "videoConference",
+  "name": "video_conference",
   "version": "1.0.0",
   "description": "videoConference using NodeJS, WebRTC and Websockets",
   "repository": {
@@ -23,6 +23,7 @@
     "@babel/preset-env": "^7.15.6",
     "express": "^4.17.1",
     "nodemon": "^2.0.13",
-    "pug": "^3.0.2"
+    "pug": "^3.0.2",
+    "ws": "^8.2.3"
   }
 }

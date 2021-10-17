@@ -1,4 +1,6 @@
 import express from "express";
+import { WebSocketServer } from "ws";
+import http from "http";
 
 const app = express();
 
@@ -13,6 +15,15 @@ app.get("/", (req, res) => res.render("home"));
 //catchcall url, 유저가 어느 경로로 이동하든 /home 으로 보내준다.
 app.get("/*", (req, res) => res.render("/home"));
 
-app.listen(3000);
+//express 는 ws 를 지원하지 않음  application 시작 방법 변경해줄것
+//app.listen(3000);
 
-console.log("hello");
+const handleListen = () => console.log("Listening on http://localhost:3000");
+//http server
+const server = http.createServer(app);
+//ws server
+const wss = new WebSocketServer({ server });
+
+server.listen(3000, handleListen);
+
+//console.log("hello");
