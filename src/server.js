@@ -24,6 +24,11 @@ const server = http.createServer(app);
 //ws server
 const wss = new WebSocketServer({ server });
 
-server.listen(3000, handleListen);
+function handleConnection(socket) {
+  console.log(socket);
+}
 
-//console.log("hello");
+//연결 .on 은 beckend에 연결된 사람의 정보 제공
+wss.on("connection", handleConnection);
+
+server.listen(3000, handleListen);
